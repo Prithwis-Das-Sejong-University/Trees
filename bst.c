@@ -15,6 +15,10 @@ void free_tree (node *root);
 
 void print_tree (node *root);
 
+void print_tree_pre(node *root);
+
+void print_tree_post (node *root);
+
 int main (void)
 {
     node *tree = NULL;
@@ -74,12 +78,16 @@ int main (void)
 
     print_tree(tree);
 
+    print_tree_pre (tree);
+
+    print_tree_post (tree); 
+
     //freeing allocated memory
 
     free_tree(tree);
 }
 
-void print_tree(node *root)
+void print_tree(node *root)   // in-order traversal
 {
     if (root = NULL)
     {
@@ -91,6 +99,34 @@ void print_tree(node *root)
     printf("%i ", root->num);
 
     print_tree(root->right);
+}
+
+void print_tree_pre(node *root)  // pre-order traversal
+{
+    if (root == NULL)
+    {
+        return;
+    }
+
+    printf("%i ", root->num);
+
+    print_tree(root->left);
+    
+    print_tree(root->right);
+}
+
+void print_tree_post (node *root)  // post-order traversal
+{
+    if (root == NULL)
+    {
+        return;
+    }
+
+    print_tree(root->left);
+
+    print_tree(root->right);
+
+    printf("%i ", root->num);
 }
 
 void free_tree (node *root)
