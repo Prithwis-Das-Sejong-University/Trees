@@ -110,7 +110,7 @@ node *deletenode (node *root, int data)
         root->right = deletenode(root->right, temp->data);
 
         // in-order successor
-        
+
         //node *temp = findmax(root->left);
 
         //root->data = temp->data;
@@ -179,12 +179,3 @@ int main (void)
 
     return 0;
 }
-
-
-
-
-//in-order: 15,25,28,30,35,40,45,50,55,60,70
-
-//pre-order: 40,30,25,15,28,35,50,45,60,55,70
-
-//post-order: 15,28,25,35,30,45,55,70,60,50,40
